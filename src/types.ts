@@ -1,10 +1,9 @@
-import { RequestInit } from 'node-fetch';
 
 export interface TranslateOptions {
   from?: string;
   to?: string;
   host?: string;
-  fetchOptions?: Partial<RequestInit>;
+  fetchOptions?: any;
 }
 
 export interface TranslateResult {

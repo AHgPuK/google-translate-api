@@ -1,4 +1,3 @@
-import fetch, { Response } from 'node-fetch';
 import createHttpError from 'http-errors';
 import { RawResponse, Sentence, TranslateOptions } from './types.js';
 import { extractTooManyRequestsInfo } from './helpers.js';
@@ -25,7 +24,7 @@ export class Translator {
     const fetchOptions = this.buildFetchOptions();
     const res = await fetch(url, fetchOptions);
     if (!res.ok) throw await this.buildError(res);
-    const raw = await res.json() as RawResponse;
+    const raw = await res.json();
     const text = this.buildResText(raw);
     return { text, raw };
   }

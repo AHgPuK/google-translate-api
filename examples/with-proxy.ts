@@ -8,7 +8,6 @@
  * Example:
  * npx ts-node-esm examples/with-proxy 8.210.83.33:80
  */
-import { RequestInit } from 'node-fetch';
 import createHttpProxyAgent from 'http-proxy-agent';
 import { translate } from '../src/index.js';
 
@@ -25,7 +24,7 @@ async function translateWithProxy(sourceText: string) {
   const fetchOptions = {
     agent: createHttpProxyAgent(`http://${proxy}`),
     signal: ac.signal,
-  } as Partial<RequestInit>;
+  };
   try {
     const { text } = await translate(sourceText, { fetchOptions });
     console.log(`Result: ${text}`);
